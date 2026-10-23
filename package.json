@@ -14,10 +14,20 @@
   "contributes": {
     "commands": [
       {
-        "command": "include-graph.showTree",
-        "title": "showTree"
+        "command": "include-graph.refresh",
+        "title": "Include Graph: Refresh"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {"id": "IncludeGraph", "title": "Include Graph", "icon": "resources/icon.svg"}
+      ]
+    },
+    "views": {
+      "IncludeGraph": [
+        {"id": "includeGraph.tree", "name": "Files"}
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -27,7 +37,8 @@
     "lint": "eslint src",
     "test": "vscode-test",
     "parse": "tsx ./TRY/try-parser.ts",
-    "resolve": "tsx ./TRY/try-resolve-absolute-path.ts"
+    "resolve": "tsx ./TRY/try-resolve-absolute-path.ts",
+    "graph": "tsx ./TRY/try-graph.ts"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
